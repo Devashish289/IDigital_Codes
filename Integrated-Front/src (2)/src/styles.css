@@ -1,0 +1,11 @@
+html,body{
+    background-image: url("src\assets\pic9.jpg");
+    background-repeat: no-repeat;
+    height: 200%;
+    background-size: 200% 800px;  
+}
+
+
+#profile,#logout{
+    color: white;
+    }

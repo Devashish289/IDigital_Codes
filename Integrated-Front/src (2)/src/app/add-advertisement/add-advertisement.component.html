@@ -1,0 +1,151 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Advertisement
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/myAds">MyAds</a>
+                    <a class="dropdown-item" routerLink="/addAd">Add Advertisement</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Offer
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/getoffers">My Offers</a>
+                    <a class="dropdown-item" routerLink="/addoffer">Make Offer</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Chatbox
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/AddChats">Add Message</a>
+                    <a class="dropdown-item" routerLink="/search">View Message</a>
+                    <a class="dropdown-item" routerLink="/list">Chat List</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Complain
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewComplaint">My Complain</a>
+                    <a class="dropdown-item" routerLink="/updateComplaint">New Complain</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewMsp">View Msp</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                   Stock
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewStock">View Stock</a>
+                    <a class="dropdown-item" routerLink="/addStock">Add Stock</a>
+                </div>
+            </li>
+           
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a id="profile" routerLink="/editProfile">Profile&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a id="logout" routerLink="/..">Logout</a></li>
+          </ul>
+    </div>
+</nav>
+<br>
+<br>
+
+
+<div class="container">
+    <form [formGroup]="addAdvertisementForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+        <h1>Add New Advertisement</h1>
+        <div class="col-md-12 mb-3">
+            <label for="advertisementId">Advertisement Id</label>
+            <input type="text" disabled class="form-control" id="advertisementId" placeholder="Advertisement Id" value="{{lastAdId}}" required="">
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <label for="pricePerquintal">Price per quintal</label>
+            <input type="text" [class.is-invalid]="addAdvertisementForm.get('advertisementPricePerQuintal').invalid 
+            && addAdvertisementForm.get('advertisementPricePerQuintal').touched" formControlName="advertisementPricePerQuintal" class="form-control" id="pricePerQuintal"
+                placeholder="Price Per Quintal" value="" required="">
+                <div *ngIf="advertisementPricePerQuintal.invalid && advertisementPricePerQuintal.touched">
+                    <small *ngIf="advertisementPricePerQuintal.errors?.required" class="text-danger">Price is required</small>
+                </div>
+        </div>
+
+        <div class="row col-md-12 mb-3">
+            <div class="column col-md-4">
+                <label for="purpose">Purpose:</label><br>
+                <select class="btn btn-outline-success dropdown-toggle" formControlName="purpose" class="form-control"
+                    name="Purpose" id="purpose">
+                    <option value="" disabled>Purpose</option>
+                    <option value="Sell">Sell</option>
+                    <option value="Purchase">Purchase</option>
+                </select>
+            </div>
+            <div class="column col-md-4">
+                <label for="targetAudience">Targeted Audience:</label><br>
+
+                <select class="btn btn-outline-success dropdown-toggle" formControlName="targetedAudience"
+                    class="form-control" name="targetAudience" id="targetAudience">
+                    <option value="" disabled>Target Audience</option>
+                    <option value="Farmer">Farmer</option>
+                    <option value="Supplier">Supplier</option>
+                    <option value="Retailer">Retailer</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <label for="cropId">Crop Id</label>
+            <input type="text" [class.is-invalid]="addAdvertisementForm.get('advertisementCropId').invalid 
+            && addAdvertisementForm.get('advertisementCropId').touched"  formControlName="advertisementCropId" class="form-control" id="cropId" placeholder="Crop Id"
+                value="" required="">
+                <div *ngIf="advertisementCropId.invalid && advertisementCropId.touched">
+                    <small *ngIf="advertisementCropId.errors?.required" class="text-danger">Crop Id is required</small>
+                    <!-- <small *ngIf="advertisementCropId.errors?.pattern" class="text-danger">Crop Id is required</small> -->
+                </div>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="quantity">Quantity In Quintals</label>
+            <input type="number" [class.is-invalid]="addAdvertisementForm.get('quantityInQuintals').invalid 
+            && addAdvertisementForm.get('quantityInQuintals').touched"  formControlName="quantityInQuintals" class="form-control" id="quantity" placeholder="Quantity"
+                value="" required="">
+                <div *ngIf="quantityInQuintals.invalid && quantityInQuintals.touched">
+                    <small *ngIf="quantityInQuintals.errors?.required" class="text-danger">Quantity is required to mention</small>
+                </div>
+        </div>
+        <div class="col-md-12 mb-3">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </div>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+.container{
+    border: 2px solid black;
+    margin: 22px 95px;
+    padding: 34px 19px;
+    width: 58%;
+    border-radius: 2px;
+}
+/* #purpose{
+    float: left;
+    clear: both;
+}
+
+#audience{
+    float: right;
+    clear: both;
+} */

@@ -1,0 +1,123 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Farming Assistant System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Advertisement
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/myAds">MyAds</a>
+                  <a class="dropdown-item" routerLink="/addAd">Add Advertisement</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Offer
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/getoffers">My Offers</a>
+                  <a class="dropdown-item" routerLink="/addoffer">Make Offer</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Chatbox
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" routerLink="/AddChats">Add Message</a>
+                <a class="dropdown-item" routerLink="/search">View Message</a>
+                <a class="dropdown-item" routerLink="/list">Chat List</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Complain
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewComplaint">My Complain</a>
+                  <a class="dropdown-item" routerLink="/updateComplaint">New Complain</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  MSP
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewMsp">View Msp</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                 Stock
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewStock">View Stock</a>
+                  <a class="dropdown-item" routerLink="/addStock">Add Stock</a>
+              </div>
+          </li>
+         
+      </ul>
+      <ul class="nav navbar-nav" style="float: right;">
+        <li><a id="profile" routerLink="/editProfile">Profile&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a id="logout" routerLink="/..">Logout</a></li>
+      </ul>
+  </div>
+</nav>
+<div class="container-fluid bg " style="height:100vh; padding-top: 20px;">
+    <div class="row">
+        <div class="col-sm-4 col-xs-4"></div>
+        <div class="col-xs-4 col-xs-4" >
+            <div class="form-container" style="background-color: rgba(251, 251, 251, 0.5);">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <h2 style="text-align: center;">Stock List</h2>
+                    </div>
+                <!-- <h2> <a routerLink="/home" class="nav-link" routerLinkActive="active">Back To Home</a> </h2> -->
+                    <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead style="color:cadetblue;">
+                        <tr >
+                            <th>supplierId</th>
+                            <th>cropId </th>
+                            <th> cropName </th>
+                            <th>stockInQuintal</th>
+                        
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let stock of stocks | async">
+                            <td>{{stock.stockId.supplierId}}</td>
+                            <td>{{stock.stockId.cropId}}</td>
+                            <td>{{stock.cropName}}</td>
+                            <td>{{stock.stockInQuintal}}</td>
+                            <td><button (click)="deleteStock(stock.stockId)" class="btn btn-danger">Delete</button>
+                                <button (click)="stockIdDetails(stock.stockId) "  class="btn btn-info" style="margin-left: 10px">Details</button> 
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button (click)="addStock()" class="btn btn-info" style="margin-left: 10px">add stock</button>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                
+                

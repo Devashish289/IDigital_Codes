@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/authority">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Complain
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/updateComplaint">Update Complain</a>
+                  
+              </div>
+          </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/addMsp">Add MSP</a>
+                    <a class="dropdown-item" routerLink="/updateDeleteMsp">Alter MSP</a>
+                    
+                </div>
+            </li>
+           
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+          <li><a id="logout" routerLink="/..">Logout</a></li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+    </div>
+</nav>
+<h3>Update Complaint</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group">
+      <label for="id">Id</label>
+      <input type="text" class="form-control" id="id" required [(ngModel)]="book.id" name="id">
+    </div> -->
+
+    <!-- <div class="form-group">
+      <label for="complaintId">ComplaintId</label>
+      <input type="text" class="form-control" id="complaintId" required [(ngModel)]="complaint.complainId" name="complainId">
+    </div> -->
+
+    <div class="form-group">
+      <label for="resolutionStatement">resolutionStatement</label>
+      <input type="text" class="form-control" id="resolutionStatement" required [(ngModel)]="complaint.resolutionStatement" name="resolutionStatement">
+    </div>
+    <div class="form-group">
+        <label for="complainStatus">complainStatus</label>
+        <input type="text" class="form-control" id="complainStatus" required [(ngModel)]="complaint.complainStatus" name="complainStatus">
+      </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+

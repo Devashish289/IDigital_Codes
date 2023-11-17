@@ -1,0 +1,28 @@
+.container{
+    margin: 30px 30px;
+    padding:20px 20px;
+    border: 5px solid rgb(7, 109, 7);
+    width: 72%;
+}
+label{
+    font-size: xx-large;
+    color: rgb(204, 14, 14);
+    margin-top: 23px;
+    width: 45%;
+}
+span{
+    font-size: xx-large;
+    float: none;
+    margin-left: 105px;
+    color: rgb(56, 6, 173);
+}
+.descript{
+    font-size: x-large;
+    color: #d10482;
+}
+img{
+    border: 5px solid green;
+}
+html,body{
+    background-image: none;
+}

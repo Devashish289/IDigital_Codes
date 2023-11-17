@@ -1,0 +1,153 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Advertisement
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/myAds">MyAds</a>
+                    <a class="dropdown-item" routerLink="/addAd">Add Advertisement</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Offer
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/getoffers">My Offers</a>
+                    <a class="dropdown-item" routerLink="/addoffer">Make Offer</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Chatbox
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/">View Chat</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Complain
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewComplaint">My Complain</a>
+                    <a class="dropdown-item" routerLink="/updateComplaint">New Complain</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewMsp">View Msp</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                   Stock
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewStock">View Stock</a>
+                    <a class="dropdown-item" routerLink="/addStock">Add Stock</a>
+                </div>
+            </li>
+           
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a id="profile" routerLink="/view-profile/:userId">Profile&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a id="logout" routerLink="/..">Logout</a></li>
+          </ul>
+    </div>
+</nav>
+<div class="container">
+   
+    <form class="form-horizontal" role="form">
+       <h2> Update Profile</h2>
+        <div class="form-group">
+            <div class="row">
+                <label for="userId" class="col-sm-3 control-label">User Id* :</label> {{resss.userId}}
+                </div>
+            </div>
+        <div class="row">
+            <label for="userName" class="col-sm-3 control-label">User Name* :</label>
+            <div class="col-sm-7">
+                <input type="text" name="userName" [(ngModel)]="resss.userName" class="form-control" autofocus>
+            </div>   
+            </div><br>
+       <!-- <div class="form-group">
+        <div class="row">
+            <label for="password" class="col-sm-3 control-label">Password*</label>
+            <div class="col-sm-7">
+                <input type="password" name="password" [(ngModel)]="data.password" class="form-control" autofocus>
+            </div>
+            </div>
+        </div> -->
+        <div class="form-group">
+        <div class="row">
+            <label for="phoneNumber" class="col-sm-3 control-label">Phone Number* </label>
+            <div class="col-sm-7">
+                <input type="number" name="phoneNumber" [(ngModel)]="resss.phoneNumber" class="form-control">
+            </div>
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="row">
+                       <label for="address" class="col-sm-3 control-label">Address*</label>
+                   <div class="col-sm-7">
+                       <textarea class="form-control" rows="3" name="address" [(ngModel)]="resss.address"></textarea>
+                   </div>
+                   </div>
+               </div>
+               <div class="form-group">
+                <div class="row">
+                       <label for="location" class="col-sm-3 control-label">location*</label>
+                   <div class="col-sm-7">
+                       <textarea class="form-control" rows="3" name="location" [(ngModel)]="resss.location"></textarea>
+                   </div>
+                   </div>
+               </div>
+               <div class="form-group">
+                <div class="row">
+                        <label for="role" class="col-sm-3 control-label">Role* </label>
+                    <div class="col-sm-7">
+                        <select required class="custom-select my-1 mr-sm-2"  #role='ngModel' [(ngModel)]="resss.role"  name="role" ngModel>
+                            <div *ngIf='role.errors && role.touched' class="alert alert-danger">
+                            <div [hidden]='!role.errors.required'> Provide the role</div>   
+                        </div>
+                            <option selected disabled hidden>Select</option>
+                            <option *ngFor="let role of Role" [ngValue]="role">{{role}}</option>
+                          </select>
+                    </div>
+                    </div>
+                </div>
+               
+               <div class="form-group">
+                   <div class="col-sm-9 col-sm-offset-3">
+                       <span class="help-block">*Mandatory</span>
+                   </div>
+               </div>
+        <div class="wrapper">
+        <button type="button" (click)="update()" class="btn btn-secondary">Update</button>
+        
+        </div>
+    </form> 
+    
+    </div>
+

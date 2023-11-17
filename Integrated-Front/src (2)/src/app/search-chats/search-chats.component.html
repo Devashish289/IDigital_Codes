@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Advertisement
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/myAds">MyAds</a>
+                    <a class="dropdown-item" routerLink="/addAd">Add Advertisement</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Offer
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/getoffers">My Offers</a>
+                    <a class="dropdown-item" routerLink="/addoffer">Make Offer</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Chatbox
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/AddChats">Add Message</a>
+                    <a class="dropdown-item" routerLink="/search">View Message</a>
+                    <a class="dropdown-item" routerLink="/list">Chat List</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Complain
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewComplaint">My Complain</a>
+                    <a class="dropdown-item" routerLink="/updateComplaint">New Complain</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewMsp">View Msp</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                   Stock
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewStock">View Stock</a>
+                    <a class="dropdown-item" routerLink="/addStock">Add Stock</a>
+                </div>
+            </li>
+           
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a id="profile" routerLink="/editProfile">Profile&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a id="logout" routerLink="/..">Logout</a></li>
+          </ul>
+    </div>
+</nav>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="image">
+  <!-- Default form subscription -->
+<form class="text-center border border-light p-5">
+  
+<br>
+    <h2>Find Chats</h2>
+  
+    <h1> You can Find Your Messages Here...</h1>
+    <!-- Bill No -->
+    <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Enter your messageId.." name="msgId" [(ngModel)]="msgId"/>
+  <br>
+    <!-- Sign in button -->
+    <button mdbBtn color="info" block="true" type="submit"(click)="Search()">Proceed</button>
+        </form>
+    </div>
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>MSG ID</th> 
+            <th>SELLER ID </th>
+            <th>BUYER ID</th>
+            <th>MESSAGE</th>
+            <th>STATUS</th>  
+        </tr>
+    </thead>
+    <tbody>
+<tr>
+    <td>{{ChatboxDto.msgId}}</td>
+    <td>{{ChatboxDto.sellerId}}</td>
+    <td>{{ChatboxDto.buyerId}}</td>
+    <td>{{ChatboxDto.message}}</td>
+    <td>{{ChatboxDto.messageStatus}}</td>
+    <td><button (click)="RemoveMsg(ChatboxDto.msgId)" class="btn btn-danger">Delete Message</button></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+
+
+
+

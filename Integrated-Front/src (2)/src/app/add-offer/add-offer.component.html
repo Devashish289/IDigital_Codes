@@ -1,0 +1,130 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Farming Assistant System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Advertisement
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/myAds">MyAds</a>
+                  <a class="dropdown-item" routerLink="/addAd">Add Advertisement</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Offer
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/getoffers">My Offers</a>
+                  <a class="dropdown-item" routerLink="/addoffer">Make Offer</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Chatbox
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" routerLink="/AddChats">Add Message</a>
+                <a class="dropdown-item" routerLink="/search">View Message</a>
+                <a class="dropdown-item" routerLink="/list">Chat List</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Complain
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewComplaint">My Complain</a>
+                  <a class="dropdown-item" routerLink="/updateComplaint">New Complain</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  MSP
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewMsp">View Msp</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                 Stock
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewStock">View Stock</a>
+                  <a class="dropdown-item" routerLink="/addStock">Add Stock</a>
+              </div>
+          </li>
+         
+      </ul>
+      <ul class="nav navbar-nav" style="float: right;">
+        <li><a id="profile" routerLink="/editProfile">Profile&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a id="logout" routerLink="/..">Logout</a></li>
+      </ul>
+  </div>
+</nav>
+<div class="bg"  style="height: 800px;">
+
+  <section class="col-md-6 mx-auto p-2 ">
+    <h2 class="text-center  m-2 p-2 m-4"><b>Add Offer</b></h2>
+    <div class=" col-md-6 p-2 m-2 alert alert-success mx-auto"*ngIf="msg!=undefined" >{{msg}}</div>
+    <div class=" col-md-6 p-2 m-2 alert alert-danger mx-auto " *ngIf="errorMsg !=undefined">{{errorMsg}}</div>
+
+
+    <section class="col-md-10 mx-auto" style="background-color: salmon;">
+      <form #frm="ngForm" (ngSubmit)="addOffer()" novalidate>
+  
+        <div class="text-white">Offer Id</div>
+        <div><input type="number" name="uid" [(ngModel)]="offer.offer_Id" placeholder="offer Id" required pattern="[0-9]{1,9}" #modeluid="ngModel"
+           class="form-control" ></div>
+        <div class="alert alert-danger" *ngIf="modeluid.invalid && modeluid.touched">Offer Id must required</div>
+      
+        <div class="text-white">Product</div>
+        <div><input type="text" name="pname" [(ngModel)]="offer.offerProduct" required #mluname="ngModel" class="form-control"></div>
+        <div class="alert alert-danger" *ngIf="mluname.invalid && mluname.touched">Product  is required</div>
+       
+        <div class="text-white">Price</div>
+        <div><input type="text" name="price" [(ngModel)]="offer.offered_Price_Per_Quintal" required #mlpwd="ngModel" class="form-control"></div>
+        <div class="alert alert-danger" *ngIf="mlpwd.invalid && mlpwd.touched">Price is required</div>
+      
+      <div class="text-white">Status</div>
+      <div><select [(ngModel)]="offer.status" name="status" required #mlstatus="ngModel" class="form-control">
+          <option value="">----------Select Status----------</option>
+          <option  value="In Stock">In Stock</option>
+          <option  value="Currently Not In Stock">Currently Out of Stock</option>  
+    </select></div>
+    <div class="alert alert-danger" *ngIf="mlstatus.invalid && mlstatus.touched">Required</div>
+  
+      
+      <div class="text-white">Person</div>
+      <div><select [(ngModel)]="offer.person" name="person" required #mlperson="ngModel" class="form-control">
+            <option value="">----------Select Person----------</option>
+            <option  value="Farmer">Farmer</option>
+            <option  value="Supplier">Supplier</option>
+            <option  value="Retailer">Retailer</option>
+      </select></div>
+      <div class="alert alert-danger" *ngIf="mlperson.invalid && mlperson.touched">Required</div>
+      
+      
+      <div class="mt-2  m-2 p-2 text-center"><input type="submit" value="Add Offer" [disabled]="!frm.valid" class="btn btn-dark text-black"/></div>
+      </form>
+      </section>
+      
+      </section>
+
+</div>

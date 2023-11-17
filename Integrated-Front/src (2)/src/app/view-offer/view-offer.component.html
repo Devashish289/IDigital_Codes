@@ -1,0 +1,115 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Farming Assistant System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Advertisement
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/myAds">MyAds</a>
+                  <a class="dropdown-item" routerLink="/addAd">Add Advertisement</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Offer
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/getoffers">My Offers</a>
+                  <a class="dropdown-item" routerLink="/addoffer">Make Offer</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Chatbox
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" routerLink="/AddChats">Add Message</a>
+                <a class="dropdown-item" routerLink="/search">View Message</a>
+                <a class="dropdown-item" routerLink="/list">Chat List</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Complain
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewComplaint">My Complain</a>
+                  <a class="dropdown-item" routerLink="/updateComplaint">New Complain</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  MSP
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewMsp">View Msp</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                 Stock
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/viewStock">View Stock</a>
+                  <a class="dropdown-item" routerLink="/addStock">Add Stock</a>
+              </div>
+          </li>
+         
+      </ul>
+      <ul class="nav navbar-nav" style="float: right;">
+        <li><a id="profile" routerLink="/editProfile">Profile&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a id="logout" routerLink="/..">Logout</a></li>
+      </ul>
+  </div>
+</nav>
+<div  style="height: 500px;">
+    
+    
+    <section  class="col-md-2 mx-auto  alert-success p-4 m-4" *ngIf="msg!=undefined">
+      {{msg}}
+      </section>
+    
+     <div class=" col-md-16 p-2 m-4" style="display: flex;">
+
+      <div *ngFor="let offr of offer1">
+        <div class="col-md-12 ">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-6 shadow-sm h-md-250 position-relative"
+           style="background-color:rgb(193, 233, 219)">
+            <div class=" p-3 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">----Offers----</strong>
+              
+              <h3 class="mb-0" style="color:red">{{offr.offerProduct}} </h3>
+              
+              <div class="mb-1 text-muted">Price Per Quintal---<b>>{{offr.offered_Price_Per_Quintal}}Rs</b></div>
+              <div class="card-text mb-auto">Status-{{offr.status}}</div>
+
+              <div class="mx-auto p-2 m-2"><a class="btn btn-danger" routerLink="/viewById/{{offr.offer_Id}}">View</a></div>
+            </div>
+            
+          </div>
+        </div>
+    
+  
+    </div>
+     
+                   
+
+      
+      </div>
+    

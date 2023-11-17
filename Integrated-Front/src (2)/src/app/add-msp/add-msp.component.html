@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/authority">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Complain
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/updateComplaint">Update Complain</a>
+                  
+              </div>
+          </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/addMsp">Add MSP</a>
+                    <a class="dropdown-item" routerLink="/updateDeleteMsp">Alter MSP</a>
+                    
+                </div>
+            </li>
+           
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a id="logout" routerLink="/..">Logout</a></li>
+          </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+    </div>
+</nav>
+<div class="container-fluid bg " style="height:100vh; padding-top: 20px;">
+    <div class="row">
+        <div class="col-sm-4 col-xs-2"></div>
+        <div class="col-xs-6 col-xs-6" >
+            <div class="form-container" style="background-color: rgba(251, 251, 251, 0.5); width:350px;">
+                <form class="form-signup" [formGroup]="msp" (ngSubmit)="addMsp()">                       
+                     <h2 class="h3 mb-3 font-weight-normal" style="color:black; text-align: center;"><b>Msp</b></h2>
+                    <label for="inputCropName" style="color:black">Crop Name</label>
+                    <input type="text" id="inputCropName" class="form-control" placeholder="Crop Name" [formControl]="msp.controls['cropName']">
+                    <div *ngIf="msp.controls['cropName'].hasError('required')&&!msp.controls['mspPrice'].pristine"class="text-danger" >It is required</div>
+                    <div *ngIf="msp.controls['cropName'].hasError('pattern')" class="text-danger">Name should start with capital letter,length should be between 3-20</div>
+                    
+                    <label for="inputMspPrice"  style="color:black;">Msp Price</label>
+                    <input id="inputMspPrice" class="form-control" placeholder="Msp Price" [formControl]="msp.controls['mspPrice']"> 
+                    <div *ngIf="msp.controls['mspPrice'].hasError('required')&&!msp.controls['mspPrice'].pristine" class="text-danger">It is required</div>
+                    <div *ngIf="msp.controls['mspPrice'].hasError('pattern')" class="text-danger">Invalid</div><br>
+                    
+                    <button class="btn btn-lg btn-danger btn-block" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<h2 *ngif="flagCropName==true">Crop already exist</h2>

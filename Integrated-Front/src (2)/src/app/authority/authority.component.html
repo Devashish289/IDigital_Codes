@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/authority">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Complain
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/updateComplaint">Update Complain</a>
+                  
+              </div>
+          </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/addMsp">Add MSP</a>
+                    <a class="dropdown-item" routerLink="/updateDeleteMsp">Alter MSP</a>
+                    
+                </div>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a id="logout" routerLink="/..">Logout</a></li>
+          </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+    </div>
+</nav>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>complaint-list</h2>
+    </div>
+
+                    <div class="panel-body">
+                    <button (click)="reload()" class="btn btn-success">Show All</button>
+                    <form (ngSubmit)="onFilter()">
+                        <div class="form-group">
+                        <label for="status">search by complain status</label> 
+                        <input type="text" class="form-control" id="status" required [(ngModel)]="status" name="status">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                    
+                    <table class="table table-striped" id="myTable">
+                        <thead>
+                        <tr>
+                            <th>complainId</th>
+                            <th>userId</th>
+                            <th>allegedPersonId</th>
+                            <th>complainStatement</th>
+                            <th>resolutionStatement</th>
+                            <th>complainStatus</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let complaint of complaints | async">
+                            <td>{{complaint.complainId}}</td>
+                            <td>{{complaint.userId}}</td>
+                            <td>{{complaint.allegedPersonId}}</td>
+                            <td>{{complaint.complainStatement}}</td>
+                            <td>{{complaint.resolutionStatement}}</td>
+                            <td>{{complaint.complainStatus}}</td>
+                            <td>
+                                <!-- <button (click)="deleteComplaint(complaint.complainId)" class="btn btn-danger">Delete</button> -->
+                                <!-- <button (click)="updateComplaint(complaint)" class="btn btn-info" style="margin-left: 10px">Update status</button> -->
+                                <!-- <button (click)="ComplaintDetails(complaint.complainId); showNotifation() "  class="btn btn-info" style="margin-left: 10px">Details</button> -->
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>

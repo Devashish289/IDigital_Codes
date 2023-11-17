@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/authority">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Complain
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/updateComplaint">Update Complain</a>
+                  
+              </div>
+          </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/addMsp">Add MSP</a>
+                    <a class="dropdown-item" routerLink="/updateDeleteMsp">Alter MSP</a>
+                    
+                </div>
+            </li>
+           
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a id="logout" routerLink="/..">Logout</a></li>
+          </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+    </div>
+</nav>
+  <div class="container-fluid bg" style="padding-top: 40px; ">
+      <div class="row" >
+          <div class="col-md-3"></div>
+          <div class="col-sm-6" style="border: 3px solid black; background-color: rgba(251, 251, 251, 0.5); ">
+              <h2 style="text-align: center;">Msp Price</h2>
+              <table  border="2px solid" class="table table-striped"  style="color: black; padding-left: 0px; padding-right: 0px;" *ngIf="msp[0]!=null">
+                <tr>
+                  <th style="text-align:center;  padding-bottom: 5px; background-color: aqua;"><b>Crop Id</b></th>
+                  <th style="text-align:center;  padding-bottom: 5px; background-color: aqua"><b>Crop Price</b></th>
+                  <th style="text-align:center;  padding-bottom: 5px; background-color: aqua"><b>Msp Price</b></th>
+                </tr>
+                <tr *ngFor="let msp of msp">
+                  <td style="text-align:center;  padding-bottom: 5px;"><b>{{msp.cropId}}</b></td>
+                  <td style="text-align:center;  padding-bottom: 5px;"><b>{{msp.cropName}}</b></td>
+                  <td style="text-align:center;  padding-bottom: 5px;"><b>{{msp.mspPrice}}</b></td>
+                  <td><button class="btn btn-lg btn-success" style="text-align: center;" data-toggle="modal" data-target="#update" (click)="fetchValues(msp.cropId)">Update</button></td>
+                  <td><button class="btn btn-lg btn-success" (click)="deleteMsp(msp.cropId)" style="text-align: center;">Delete</button></td>
+                </tr>
+            </table>
+          </div>
+          <div class="col-md-3"></div>
+          <h2 *ngIf="flag==false">No Record Found</h2>
+      </div>
+  </div>
+  <div class="modal fade" id="update" tabindex="-1" aria-labelledby="updateLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateLabel">MSP Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form class="form-signup" [formGroup]="msp1" (ngSubmit)="updateMsp()">                       
+                <h2 class="h3 mb-3 font-weight-normal" style="color:black; text-align: center;"><b>Msp</b></h2>
+               <label for="inputCropName" style="color:black">Crop Name</label>
+               <input type="text" id="inputCropName" class="form-control" placeholder="Crop Name" [formControl]="msp1.controls['cropName']">
+               <div *ngIf="msp1.controls['cropName'].hasError('required')&&!msp1.controls['mspPrice'].pristine"class="text-danger" >It is required</div>
+               <div *ngIf="msp1.controls['cropName'].hasError('pattern')" class="text-danger">Name should start with capital letter,length should be between 3-20</div>
+               
+               <label for="inputMspPrice"  style="color:black;">Msp Price</label>
+               <input id="inputMspPrice" class="form-control" placeholder="Msp Price" [formControl]="msp1.controls['mspPrice']"> 
+               <div *ngIf="msp1.controls['mspPrice'].hasError('required')&&!msp1.controls['mspPrice'].pristine" class="text-danger">It is required</div>
+               <div *ngIf="msp1.controls['mspPrice'].hasError('pattern')" class="text-danger">Invalid</div><br>
+               
+               <button class="btn btn-lg btn-danger btn-block" type="submit">Update</button>
+           </form>
+            </div>
+        </div>
+    </div>
+  </div>
+  

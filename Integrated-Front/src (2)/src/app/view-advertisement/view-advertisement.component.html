@@ -1,0 +1,119 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Advertisement
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/myAds">MyAds</a>
+                    <a class="dropdown-item" routerLink="/addAd">Add Advertisement</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Offer
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/getoffers">My Offers</a>
+                    <a class="dropdown-item" routerLink="/addoffer">Make Offer</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Chatbox
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/AddChats">Add Message</a>
+                    <a class="dropdown-item" routerLink="/search">View Message</a>
+                    <a class="dropdown-item" routerLink="/list">Chat List</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Complain
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewComplaint">My Complain</a>
+                    <a class="dropdown-item" routerLink="/updateComplaint">New Complain</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewMsp">View Msp</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                   Stock
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewStock">View Stock</a>
+                    <a class="dropdown-item" routerLink="/addStock">Add Stock</a>
+                </div>
+            </li>
+           
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a id="profile" routerLink="/editProfile">Profile&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a id="logout" routerLink="/..">Logout</a></li>
+          </ul>
+    </div>
+</nav>
+<body>
+<div class="container">
+    <div>
+        <img src="{{advertisement.cropImage}}" alt="">
+    </div>
+    <div>
+        <label for="adId">Advertisement Id : </label>
+        <span>{{advertisement.advertisementId}}</span>
+    </div>
+    <div>
+        <label for="price">Price Per Quintal : </label>
+        <span>{{advertisement.advertisementPricePerQuintal}}</span>
+    </div>
+    <div>
+        <label for="cropId">Crop Id : </label>
+        <span>{{advertisement.advertisementCropId}}</span>
+    </div>
+    <div>
+        <label for="cropName">Crop Name : </label>
+        <span>{{advertisement.cropName}}</span>
+    </div>
+    <div>
+        <label for="quantity">Quantity in Quintals : </label>
+        <span>{{advertisement.quantityInQuintals}}</span>
+    </div>
+    <div>
+        <label for="purpose">Purpose : </label>
+        <span>{{advertisement.purpose}}</span>
+    </div>
+    <div>
+        <label for="target">Target audience : </label>
+        <span>{{advertisement.targetedAudience}}</span>
+    </div>
+    <div>
+        <label for="price">Description : </label>
+        <div class="descript">{{advertisement.description}}</div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,125 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Farming Assistant System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Advertisement
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/myAds">MyAds</a>
+                    <a class="dropdown-item" routerLink="/addAd">Add Advertisement</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Offer
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/getoffers">My Offers</a>
+                    <a class="dropdown-item" routerLink="/addoffer">Make Offer</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Chatbox
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/AddChats">Add Message</a>
+                    <a class="dropdown-item" routerLink="/search">View Message</a>
+                    <a class="dropdown-item" routerLink="/list">Chat List</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Complain
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewComplaint">My Complain</a>
+                    <a class="dropdown-item" routerLink="/updateComplaint">New Complain</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    MSP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewMsp">View Msp</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                   Stock
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewStock">View Stock</a>
+                    <a class="dropdown-item" routerLink="/addStock">Add Stock</a>
+                </div>
+            </li>
+           
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a id="profile" routerLink="/editProfile">Profile&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a id="logout" routerLink="/..">Logout</a></li>
+          </ul>
+    </div>
+</nav>
+<div>
+    
+
+        <!-- <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">  -->
+
+        <h1>ADD CHATS HERE</h1>
+        <h2>Add Chats Here...</h2>
+        <div>
+            <label>MSG ID:</label>
+            <input required [(ngModel)]="ChatboxDto.msgId" #msgId="ngModel" minlength="6" maxlength="6" type="msgId"
+                msgId ngModel class="form-control" name="msgId">
+            <!-- <span *ngIf=" msgId.touched && msgId.invalid" class="error">Msg Id is required</span> -->
+        </div>
+        <div>
+            <label>SELLER ID:</label>
+            <input required [(ngModel)]="ChatboxDto.sellerId" #sellerId="ngModel" minlength="6" maxlength="6"
+                type="sellerId" sellerId ngModel class="form-control" name="sellerId">
+            <!-- <span > Seller Id is required </span> -->
+        </div>
+        <div>
+            <label>BUYER ID:</label>
+            <input required [(ngModel)]="ChatboxDto.buyerId" #buyerId="ngModel" minlength="6" maxlength="6"
+                type="buyerId" buyerId ngModel class="form-control" name="buyerId">
+            <!-- <span > Buyer Id is required</span> -->
+        </div>
+        <div>
+            <label>MESSAGE:</label>
+            <input required [(ngModel)]="ChatboxDto.message" #message="ngModel" type="message" message ngModel
+                class="form-control" name="message">
+        </div>
+        <div>
+            <label>STATUS:</label>
+            <select [(ngModel)]="ChatboxDto.messageStatus" #messageStatus="ngModel" type="messageStatus" messageStatus
+                ngModel class="form-control" name="messageStatus">
+                <option value="Sent">Sent</option>
+                <option value="Delievered">Delieverd </option>
+                <option value="Pending">Pending</option>
+            </select>
+        </div>
+        <br>
+        <button type="button" (click)="AddMsgNow()" class="btn btn-primary"> Add</button>
+
+        <!-- </form> -->
+   
+</div>

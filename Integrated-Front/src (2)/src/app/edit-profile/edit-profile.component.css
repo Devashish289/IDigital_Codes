@@ -1,0 +1,61 @@
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+   
+}
+
+*[role="form"] h2 { 
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 20px;
+    
+    color: #000000;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+    .help-block {
+    font-size: 10px;
+    }
+
+    h2 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      .topnav .b:hover {
+        background-color: #ddd;
+        color: black;
+      }
+    
+      p{
+          color:white;
+      }
+      
+      .topnav a.active {
+        color: white;
+      }
+      
+      .topnav-right {
+        float: right;
+      }
